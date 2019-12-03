@@ -7,7 +7,7 @@
     "build": "tsc -p tsconfig.build.json",
     "test": "jest",
     "buildandtest": "npm run build && jest",
-    "01": "node src/01.js"
+    "runner": "node src/runner.js"
   },
   "author": "",
   "license": "ISC",

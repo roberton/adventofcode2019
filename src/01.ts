@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as util from 'util'
 const readFile = util.promisify(fs.readFile)
-import { forStatement } from "@babel/types"
 
 export function calcFuel(mass: number): number {
   return Math.max(Math.floor(mass / 3) - 2, 0)
@@ -29,15 +28,16 @@ async function readModuleMasses() {
 async function part1() {
   const moduleMasses = await readModuleMasses();
   const fuel = calcSumOfFuelRequirements(moduleMasses, calcFuel)
-  console.log(fuel)
+  console.log(`Day 01 / Part 1: ${fuel}`)
 }
 
 async function part2() {
   const moduleMasses = await readModuleMasses();
   const fuel = calcSumOfFuelRequirements(moduleMasses, calcFuelIncludingItsFuel)
-  console.log(fuel)
+  console.log(`Day 01 / Part 2: ${fuel}`)
 }
 
-part1()
-part2()
-
+export async function main() {
+  await part1()
+  await part2()
+}
